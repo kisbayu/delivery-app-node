@@ -1,0 +1,18 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API Documentation for Delivery Service",
+        "description": "API Documentation for delivery service for class assignment",
+        "version": "1.0.0",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Development server"
+        }
+    ]
+}
