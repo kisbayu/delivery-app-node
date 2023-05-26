@@ -5,6 +5,7 @@ const PORT = process.env.PORT || 3000
 const apiRouter = require('./routes')
 const swaggerUI = require('swagger-ui-express')
 const swaggerJSON = require('./docs/swagger.json')
+require('dotenv').config()
 
 // middlewares
 app.use(cors())
