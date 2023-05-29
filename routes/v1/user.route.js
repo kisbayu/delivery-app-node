@@ -6,5 +6,7 @@ const userRouter = require('express').Router();
  */
 
 userRouter.post("/", UserController.registerUser);
+userRouter.post("/login", UserController.loginUser);
+
 
 module.exports = userRouter;
