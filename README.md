@@ -6,4 +6,5 @@ Created by Kisbayu Adji
 
 ### 1. Clone this repo
 ### 2. Install dependencies using "npm init"
-### 3. Run the repository using "npm start"
+### 3. Fill the local environment in the env.example
+### 4. Run the repository using "npm start"
