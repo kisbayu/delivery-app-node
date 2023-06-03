@@ -97,9 +97,43 @@ class UserController {
                 token: token
             })
         } catch (error) {
-            console.log('=============REGISTER==================');
+            console.log('=============LOGIN==================');
             console.log(error);
-            console.log('=============REGISTER==================');
+            console.log('=============LOGIN==================');
+            res.status(500).json({
+                message: error.message,
+                status: "Error"
+            })
+        }
+    }
+
+    static async updateUser(req, res, next) {
+        try {
+            const {id} = req.params;
+            const oldUser = await User.findByPk(id);
+            if(!oldUser){
+                res.status(404).json({
+                    message: "User not found",
+                    status: "Error"
+                })
+            }
+
+            const updatedUser = await User.update({
+                name: req.body.name,
+                phone: req.body.phone,
+                email: req.body.email,
+                address: req.body.address,
+                password: await hashPassword(req.body.password)
+            }, {where: {id: id}})
+            res.status(200).json({
+                message: "User Updated SuccessFully",
+                status: "Success",
+                data: updatedUser
+            });
+        } catch (error) {
+            console.log('=============UPDATE-USER==================');
+            console.log(error);
+            console.log('=============UPDATE-USER==================');
             res.status(500).json({
                 message: error.message,
                 status: "Error"
