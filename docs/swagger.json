@@ -1,9 +1,14 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "API Documentation for Delivery Service",
+        "title": "AntarYuk - API Documentation",
         "description": "API Documentation for delivery service for class assignment",
         "version": "1.0.0",
+        "contact": {
+            "name": "Kisbayu Adji",
+            "url": "https://github.com/kisbayu",
+            "email": "kisbayu.k.a@email.com"
+        },
         "license": {
             "name": "MIT",
             "url": "https://opensource.org/licenses/MIT"
@@ -14,5 +19,32 @@
             "url": "http://localhost:3000",
             "description": "Development server"
         }
-    ]
+    ],
+    "tags": [
+        {
+            "name": "User",
+            "description": "User related endpoints"
+        },
+        {
+            "name": "Order",
+            "description": "Order related endpoints"
+        }
+    ],
+    "paths":{
+        "/api/v1/users/register":{
+            "tags": ["User"],
+            "summary": "Create New User",
+            "operationID": "Create User",
+            "requestBody": {
+                "description":"Create New User",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/User"
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
