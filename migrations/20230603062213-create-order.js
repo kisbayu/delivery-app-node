@@ -37,6 +37,9 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      note: {
+        type: Sequelize.STRING,
+      },
       status: {
         type: Sequelize.ENUM('On Going', 'Done', 'Canceled'),
         allowNull: false,

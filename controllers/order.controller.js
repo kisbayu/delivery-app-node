@@ -21,10 +21,36 @@ class OrderController {
         }
     }
 
+    static async getOrderByID(req, res, next) {
+        try {
+            const {id} = req.params;
+            const orderData = await order.findByPk(id);
+            if(!orderData){
+                res.status(404).json({
+                    message: "Order not found",
+                    status: "Error"
+                })
+            }
+            res.status(200).json({
+                message: "Success get order by ID",
+                status: "Success",
+                data: orderData
+            })
+        } catch (error) {
+            console.log('=============GET-ORDER-BY-ID==================');
+            console.log(error);
+            console.log('=============GET-ORDER-BY-ID==================');
+            res.status(500).json({
+                message: error.message,
+                status: "Error"
+            })
+        }
+    }
+
     static async createOrder(req, res, next) {
         try {
             const randomInt = Math.floor(Math.random() * 9);
-            const {userID, userName, restoID, restoName, paymentMethod, deliveryType} = req.body;
+            const {userID, userName, restoID, restoName, paymentMethod, deliveryType, note} = req.body;
             if(!userName || !restoName || !paymentMethod || !deliveryType){
                 res.status(400).json({
                     message: "Please fill all required fields",
@@ -40,6 +66,7 @@ class OrderController {
                 paymentMethod: paymentMethod,
                 deliveryType: deliveryType,
                 price: priceCalculation(randomInt, deliveryType),
+                note: note,
                 status: "On Going"
             })
             res.status(201).json({
