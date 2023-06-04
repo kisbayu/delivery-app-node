@@ -19,6 +19,10 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerJSON))
  */
 app.use("/api", apiRouter)
 
+apiRouter.get('/', (req, res) => {
+  res.send('Delivery App Backend')
+})
+
 app.listen(PORT, () => {
     console.log(`Listening on http://localhost:${PORT}`)
   })
