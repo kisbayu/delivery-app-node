@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 8000
 const apiRouter = require('./routes')
 const swaggerUI = require('swagger-ui-express')
 const swaggerJSON = require('./docs/swagger.json')
@@ -19,8 +19,8 @@ app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerJSON))
  */
 app.use("/api", apiRouter)
 
-apiRouter.get('/', (req, res) => {
-  res.send('Delivery App Backend')
+app.get('/', (req, res) => {
+  res.send('AntarYuk Backend is working 🎉')
 })
 
 app.listen(PORT, () => {
