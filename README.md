@@ -5,6 +5,6 @@ Created by Kisbayu Adji
 ## How To Run This Repo
 
 ### 1. Clone this repo
-### 2. Install dependencies using "npm init"
+### 2. Install dependencies using "npm install"
 ### 3. Fill the local environment in the env.example
 ### 4. Run the repository using "npm start"
